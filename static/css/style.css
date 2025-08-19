@@ -1,0 +1,50 @@
+/* static/css/style.css */
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Smooth hover effects for links */
+a {
+    transition: all 0.3s ease;
+}
+
+/* Service Card Glow Effect */
+.service-card:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Animate Hero Text */
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+.hero-title {
+    animation: fadeInUp 1s ease-in-out forwards;
+}
+
+/* Button Hover Shine */
+button, .btn-shiny {
+    position: relative;
+    overflow: hidden;
+}
+
+button::after, .btn-shiny::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.4);
+    transform: skewX(-25deg);
+}
+
+button:hover::after, .btn-shiny:hover::after {
+    animation: shine 0.75s forwards;
+}
+
+@keyframes shine {
+    0%   { left: -75%; }
+    100% { left: 125%; }
+}

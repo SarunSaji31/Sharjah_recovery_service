@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Home | Sharjah Recovery Service{% endblock %}
+
+{% block content %}
+
+<!-- Hero Section -->
+<section class="relative h-screen flex items-center justify-center">
+  <div class="absolute inset-0">
+    <img src="{% static 'images/hero-bg.jpg' %}" alt="Recovery Service" class="w-full h-full object-cover">
+    <div class="absolute inset-0 bg-gradient-to-r from-black/70 to-black/40"></div>
+  </div>
+  <div class="relative z-10 text-center text-white px-4" data-aos="fade-up">
+    <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-tight drop-shadow-lg">
+      Fast & Reliable Vehicle Recovery
+    </h1>
+    <p class="text-lg md:text-2xl mb-8 opacity-90">
+      Serving Sharjah 24/7 with Trust & Care
+    </p>
+    <a href="#contact"
+       class="btn-shiny px-8 py-4 bg-yellow-500 hover:bg-yellow-600 rounded-full text-lg font-semibold shadow-lg transform hover:scale-105 transition-all duration-300">
+       📞 Contact Us Now
+    </a>
+  </div>
+</section>
+
+<!-- Services Section -->
+<section id="services" class="container mx-auto px-6 py-20">
+  <h2 class="text-4xl font-bold text-center text-gray-800 mb-16" data-aos="fade-down">Our Services</h2>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+    {% for service in services %}
+    <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 service-card"
+         data-aos="zoom-in" data-aos-delay="{{ forloop.counter0|add:1 }}00">
+      <img src="{% static service.image %}" alt="{{ service.title }}" class="h-24 mx-auto mb-6">
+      <h3 class="text-2xl font-semibold text-center text-gray-800 mb-3">{{ service.title }}</h3>
+      <p class="text-gray-600 text-center">{{ service.desc }}</p>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="bg-gradient-to-r from-blue-50 to-white py-20">
+  <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+    <div class="rounded-lg overflow-hidden shadow-xl transform hover:scale-105 transition-all"
+         data-aos="fade-right">
+      <img src="{% static 'images/about.jpg' %}" alt="About Us">
+    </div>
+    <div data-aos="fade-left">
+      <h2 class="text-4xl font-bold mb-6">About Sharjah Recovery Service</h2>
+      <p class="text-lg text-gray-700 mb-6 leading-relaxed">
+        With over 10 years of experience, we provide fast, reliable, and affordable recovery services across Sharjah and nearby areas.
+      </p>
+      <ul class="space-y-3 text-gray-700">
+        <li>✅ 24/7 Emergency Availability</li>
+        <li>✅ Certified & Experienced Staff</li>
+        <li>✅ Transparent & Affordable Pricing</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Areas We Serve Section -->
+<section id="areas" class="bg-white py-20">
+  <div class="container mx-auto px-6">
+    <h2 class="text-4xl font-bold text-center text-gray-800 mb-12" data-aos="fade-up">
+      Areas We Serve in Sharjah
+    </h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6" data-aos="fade-up" data-aos-delay="200">
+      {% for area in areas %}
+      <div class="bg-blue-50 hover:bg-blue-100 transition p-6 rounded-lg shadow text-center">
+        <span class="text-lg font-medium text-gray-800">📍 {{ area }}</span>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- Photo Gallery Section -->
+<section id="gallery" class="bg-gray-50 py-20">
+  <div class="container mx-auto px-6">
+    <h2 class="text-4xl font-bold text-center text-gray-800 mb-12" data-aos="fade-up">
+      Photo Gallery
+    </h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6" data-aos="fade-up" data-aos-delay="200">
+      <div class="overflow-hidden rounded-lg shadow-lg">
+        <img src="{% static 'images/photo1.jpg' %}" alt="Gallery Image 1" class="w-full h-64 object-cover transform hover:scale-105 transition-transform duration-300">
+      </div>
+      <div class="overflow-hidden rounded-lg shadow-lg">
+        <img src="{% static 'images/photo2.jpg' %}" alt="Gallery Image 2" class="w-full h-64 object-cover transform hover:scale-105 transition-transform duration-300">
+      </div>
+      <div class="overflow-hidden rounded-lg shadow-lg">
+        <img src="{% static 'images/photo3.jpg' %}" alt="Gallery Image 3" class="w-full h-64 object-cover transform hover:scale-105 transition-transform duration-300">
+      </div>
+      <div class="overflow-hidden rounded-lg shadow-lg">
+        <img src="{% static 'images/photo4.jpg' %}" alt="Gallery Image 4" class="w-full h-64 object-cover transform hover:scale-105 transition-transform duration-300">
+      </div>
+      <div class="overflow-hidden rounded-lg shadow-lg">
+        <img src="{% static 'images/photo5.jpg' %}" alt="Gallery Image 5" class="w-full h-64 object-cover transform hover:scale-105 transition-transform duration-300">
+      </div>
+      <div class="overflow-hidden rounded-lg shadow-lg">
+        <img src="{% static 'images/photo6.jpg' %}" alt="Gallery Image 6" class="w-full h-64 object-cover transform hover:scale-105 transition-transform duration-300">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section (WhatsApp Only) -->
+<section id="contact" class="container mx-auto px-6 py-20">
+  <h2 class="text-4xl font-bold text-center text-gray-800 mb-16" data-aos="fade-up">
+    Get in Touch
+  </h2>
+  <div class="bg-white rounded-2xl shadow-lg p-8 md:p-12 max-w-xl mx-auto text-center" data-aos="zoom-in">
+    <p class="text-lg text-gray-700 mb-8">
+      Have a question or need roadside help? Chat with us instantly on WhatsApp!
+    </p>
+    <a href="https://wa.me/9715XXXXXXXXX?text=Hello%2C%20I%20need%20help%20with%20vehicle%20recovery%20service%20in%20Sharjah."
+       target="_blank"
+       class="w-full inline-block py-4 px-8 bg-green-500 hover:bg-green-600 rounded-lg text-white font-semibold shadow-lg transform hover:scale-105 transition-all text-lg">
+      💬 Chat on WhatsApp
+    </a>
+  </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,141 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Sharjah Recovery Service{% endblock %}</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- AOS CSS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Poppins', sans-serif; }
+    /* Nav active link effect */
+    nav a.active { color: #2563eb; font-weight: 600; position: relative; }
+    nav a.active::after {
+      content: "";
+      position: absolute;
+      left: 0; bottom: -4px;
+      width: 100%; height: 2px;
+      background-color: #2563eb;
+    }
+    /* Floating buttons */
+    .float-btn {
+      position: fixed;
+      right: 20px;
+      z-index: 50;
+      background: #25D366;
+      color: white;
+      border-radius: 50%;
+      padding: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      animation: pulse 2s infinite;
+    }
+    .call-btn { bottom: 90px; background: #2563eb; }
+    .whatsapp-btn { bottom: 20px; background: #25D366; }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.08); }
+      100% { transform: scale(1); }
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- Navbar -->
+  <header class="fixed w-full bg-white shadow-lg z-50">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="/" class="text-2xl font-bold text-blue-600">Sharjah Recovery Service</a>
+
+      <!-- Desktop Menu -->
+      <nav class="hidden md:flex space-x-6">
+        <a href="#services" class="hover:text-blue-600">Services</a>
+        <a href="#about" class="hover:text-blue-600">About</a>
+        <a href="#contact" class="hover:text-blue-600">Contact</a>
+      </nav>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-btn" class="md:hidden text-gray-700 focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" 
+             viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round"
+                d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg px-6 py-4 space-y-4">
+      <a href="#services" class="block hover:text-blue-600">Services</a>
+      <a href="#about" class="block hover:text-blue-600">About</a>
+      <a href="#contact" class="block hover:text-blue-600">Contact</a>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="pt-20">
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-300 mt-16 py-10">
+    <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div>
+        <h3 class="text-xl font-semibold text-white mb-4">Sharajh Recovery Service</h3>
+        <p class="text-gray-400 text-sm">Providing Sharjah with professional & trusted recovery services for over 05 years.</p>
+      </div>
+      <div>
+        <h4 class="font-semibold text-white mb-4">Quick Links</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="#services" class="hover:text-white">Services</a></li>
+          <li><a href="#about" class="hover:text-white">About</a></li>
+          <li><a href="#contact" class="hover:text-white">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold text-white mb-4">Contact</h4>
+        <p class="text-sm">📍 Sharjah, UAE</p>
+        <p class="text-sm">📞 +971 56 574 7178</p>
+        <p class="text-sm">✉ sohaibzia1988@gmail.com</p>
+      </div>
+    </div>
+    <div class="text-center text-gray-500 text-sm mt-8">
+      &copy; {% now "Y" %} Sharajh Recovery Service. All rights reserved.
+    </div>
+  </footer>
+
+  <!-- Floating Buttons -->
+  <a href="tel:+971501234567" class="float-btn call-btn">
+    📞
+  </a>
+  <a href="https://wa.me/971501234567" target="_blank" class="float-btn whatsapp-btn">
+    💬
+  </a>
+
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1000, once: true });
+    // Mobile Menu Toggle
+    document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
+    });
+  </script>
+</body>
+</html>
